@@ -162,7 +162,7 @@
     </div>
     <div class="foot-bottom">
       <p>&copy; <span id="year"></span> iConnect Pre-Owned. All rights reserved.</p>
-      <div style="display:flex; gap:1.5rem;"><a href="faq.html">Privacy Policy</a><a href="faq.html">Terms of Service</a><span style="color:rgb(255 255 255/.3);">POPIA compliant</span></div>
+      <div style="display:flex; gap:1.5rem;"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><span style="color:rgb(255 255 255/.3);">POPIA compliant</span></div>
       <div class="pay-badges"><span>VISA</span><span>MASTERCARD</span><span>PAYFAST</span><span>EFT</span></div>
     </div>
   </div>
@@ -190,18 +190,54 @@
         </div>`).join('')}
     </div>`).join('');
 
-  document.getElementById('repairForm').addEventListener('submit', function(e){
+  function todayLocal(){
+    const d = new Date();
+    const yyyy = d.getFullYear();
+    const mm = String(d.getMonth() + 1).padStart(2, '0');
+    const dd = String(d.getDate()).padStart(2, '0');
+    return `${yyyy}-${mm}-${dd}`;
+  }
+
+  const rpDate = document.getElementById('rp-date');
+  if(rpDate){ rpDate.min = todayLocal(); }
+
+  document.getElementById('repairForm').addEventListener('submit', async function(e){
     e.preventDefault();
-    const email = document.getElementById('rp-email').value;
-    document.getElementById('repairFormWrap').innerHTML = `
-      <div style="text-align:center;">
-        <div style="width:56px; height:56px; border-radius:999px; background:rgb(var(--positive)/.12); color:rgb(var(--positive)); display:flex; align-items:center; justify-content:center; margin:0 auto;">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
-        </div>
-        <h3 style="font-size:1.15rem; font-weight:700; margin-top:1rem;">Booking received</h3>
-        <p style="margin-top:.5rem; font-size:.85rem; color:rgb(var(--ink-soft));">We'll email ${email || 'you'} within 2 hours to confirm your drop-off or courier collection.</p>
-      </div>`;
+    const booking = {
+      device: document.getElementById('rp-device').value,
+      issue: document.getElementById('rp-issue').value,
+      date: document.getElementById('rp-date').value,
+      name: document.getElementById('rp-name').value,
+      email: document.getElementById('rp-email').value,
+      phone: document.getElementById('rp-phone').value,
+    };
+    const today = todayLocal();
+    if(booking.date < today){
+      document.getElementById('repairFormWrap').innerHTML = `
+        <div style="text-align:center; color:rgb(var(--caution)); font-weight:700;">Please choose a booking date that is today or later.</div>`;
+      return;
+    }
+    const result = await submitRepairBooking(booking);
+    if(result.success){
+      document.getElementById('repairFormWrap').innerHTML = `
+        <div style="text-align:center;" role="status" aria-live="polite">
+          <div style="width:56px; height:56px; border-radius:999px; background:rgb(var(--positive)/.12); color:rgb(var(--positive)); display:flex; align-items:center; justify-content:center; margin:0 auto;">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          </div>
+          <h3 id="repairStatusHeading" tabindex="-1" style="font-size:1.15rem; font-weight:700; margin-top:1rem;">Booking request received</h3>
+          <p style="margin-top:.5rem; font-size:.85rem; color:rgb(var(--ink-soft));">This demo booking flow has captured your details. We would email ${booking.email || 'you'} within 2 hours to confirm the drop-off or courier collection.</p>
+        </div>`;
+      const heading = document.getElementById('repairStatusHeading');
+      if(heading) heading.focus();
+    } else {
+      document.getElementById('repairFormWrap').innerHTML = `
+        <div style="text-align:center; color:rgb(var(--caution)); font-weight:700;">${result.message || 'Unable to send booking request. Please try again later.'}</div>`;
+    }
   });
+
+  async function submitRepairBooking(payload){
+    return new Promise(resolve => setTimeout(() => resolve({ success: true }), 250));
+  }
 
   observeReveal('.reveal');
 </script>

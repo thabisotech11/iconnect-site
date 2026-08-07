@@ -153,7 +153,7 @@
     </div>
     <div class="foot-bottom">
       <p>&copy; <span id="year"></span> iConnect Pre-Owned. All rights reserved.</p>
-      <div style="display:flex; gap:1.5rem;"><a href="faq.html">Privacy Policy</a><a href="faq.html">Terms of Service</a><span style="color:rgb(255 255 255/.3);">POPIA compliant</span></div>
+      <div style="display:flex; gap:1.5rem;"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><span style="color:rgb(255 255 255/.3);">POPIA compliant</span></div>
       <div class="pay-badges"><span>VISA</span><span>MASTERCARD</span><span>PAYFAST</span><span>EFT</span></div>
     </div>
   </div>
@@ -167,7 +167,8 @@
 <script src="js/main.js"></script>
 <script>
   const slug = new URLSearchParams(window.location.search).get('slug');
-  const product = getProductBySlug(slug) || PRODUCTS[0];
+  const product = getProductBySlug(slug);
+  if(!product){ window.location.href = 'shop.html'; throw new Error('Product not found'); }
   const meta = CATEGORY_META[product.category];
   let selectedStorage = product.storage[0] || null;
   let selectedColor = product.colors[0] || null;
@@ -245,7 +246,16 @@
     document.querySelectorAll('#colorRow .variant-chip').forEach(btn => btn.addEventListener('click', function(){ selectedColor = this.dataset.color; renderPurchasePanel(); }));
     document.getElementById('qtyMinus').addEventListener('click', () => { qty = Math.max(1, qty-1); document.getElementById('qtyValue').textContent = qty; });
     document.getElementById('qtyPlus').addEventListener('click', () => { qty = Math.min(product.stock, qty+1); document.getElementById('qtyValue').textContent = qty; });
-    document.getElementById('addToCartBtn').addEventListener('click', function(){ addToCart(product.name); this.textContent = 'Added ✓'; setTimeout(()=>{ this.textContent = 'Add to Cart'; }, 1800); });
+    document.getElementById('addToCartBtn').addEventListener('click', function(){
+      addToCart({
+        productId: product.slug,
+        name: product.name,
+        selectedStorage,
+        selectedColor,
+        qty,
+      });
+      this.textContent = 'Added ✓'; setTimeout(()=>{ this.textContent = 'Add to Cart'; }, 1800);
+    });
     document.getElementById('pdFavBtn').addEventListener('click', function(){ toggleFav(this); });
   }
 

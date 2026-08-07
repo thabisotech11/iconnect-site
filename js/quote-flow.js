@@ -8,6 +8,7 @@ function renderQuoteFlow(containerId, goal){
   const container = document.getElementById(containerId);
   const state = { step:'category', category:null, model:null, answers:{}, contact:{name:'',email:'',phone:'',notes:''} };
   const stepOrder = ['category','model',0,1,2,3,'quote','contact','done'];
+  const escapeHTML = str => String(str || '').replace(/[&"'<>]/g, c => ({'&':'&amp;','"':'&quot;','\'':'&#39;','<':'&lt;','>':'&gt;'})[c]);
 
   function totalDeduction(){ return Object.values(state.answers).reduce((s,a)=>s+a.deduction,0); }
   function estimatedValue(){
@@ -81,14 +82,17 @@ function renderQuoteFlow(containerId, goal){
     }
 
     else if(state.step === 'contact'){
+      const escapeHTML = str => String(str || '').replace(/[&"'<>]/g, c => ({'&':'&amp;','"':'&quot;','\'':'&#39;','<':'&lt;','>':'&gt;'})[c]);
+      const errorMessage = state.submissionError ? `<div role="alert" tabindex="-1" data-quote-status style="margin-top:.75rem; color:rgb(var(--caution)); font-weight:700;">${escapeHTML(state.submissionError)}</div>` : '';
       body = `
         <h2 style="font-size:1.3rem; font-weight:700;">Almost done</h2>
         <p style="margin-top:.25rem; font-size:.85rem; color:rgb(var(--ink-soft));">We'll send your free courier bag or drop-off details.</p>
+        ${errorMessage}
         <form id="quoteContactForm" style="margin-top:1.5rem;">
-          <div class="field"><label for="qf-name">Full name</label><input id="qf-name" required value="${state.contact.name}"></div>
-          <div class="field"><label for="qf-email">Email</label><input id="qf-email" type="email" required value="${state.contact.email}"></div>
-          <div class="field"><label for="qf-phone">Phone number</label><input id="qf-phone" type="tel" required placeholder="082 000 0000" value="${state.contact.phone}"></div>
-          <div class="field" style="margin-bottom:0;"><label for="qf-notes">Anything else we should know <span class="optional">(optional)</span></label><textarea id="qf-notes" rows="3">${state.contact.notes}</textarea></div>
+          <div class="field"><label for="qf-name">Full name</label><input id="qf-name" required value="${escapeHTML(state.contact.name)}"></div>
+          <div class="field"><label for="qf-email">Email</label><input id="qf-email" type="email" required value="${escapeHTML(state.contact.email)}"></div>
+          <div class="field"><label for="qf-phone">Phone number</label><input id="qf-phone" type="tel" required placeholder="082 000 0000" value="${escapeHTML(state.contact.phone)}"></div>
+          <div class="field" style="margin-bottom:0;"><label for="qf-notes">Anything else we should know <span class="optional">(optional)</span></label><textarea id="qf-notes" rows="3">${escapeHTML(state.contact.notes)}</textarea></div>
           <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top:1.5rem;">Confirm my ${fmtZAR(estimatedValue())} quote</button>
         </form>`;
     }
@@ -99,8 +103,10 @@ function renderQuoteFlow(containerId, goal){
           <div style="width:64px; height:64px; border-radius:999px; background:rgb(var(--positive)/.12); color:rgb(var(--positive)); display:flex; align-items:center; justify-content:center; margin:0 auto;">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
           </div>
-          <h2 style="font-size:1.5rem; font-weight:800; margin-top:1.25rem;">Quote confirmed</h2>
-          <p style="max-width:24rem; margin:.5rem auto 0; font-size:.9rem; color:rgb(var(--ink-soft));">We've emailed ${state.contact.email || 'you'} your prepaid courier details for your ${state.model.model}. Your ${fmtZAR(estimatedValue())} ${goal==='trade-in'?'credit':'payout'} is reserved for 14 days.</p>
+          <div role="status" tabindex="-1" data-quote-status>
+            <h2 style="font-size:1.5rem; font-weight:800; margin-top:1.25rem;">Quote confirmed</h2>
+            <p style="max-width:24rem; margin:.5rem auto 0; font-size:.9rem; color:rgb(var(--ink-soft));">We've emailed ${escapeHTML(state.contact.email || 'you')} your prepaid courier details for your ${escapeHTML(state.model.model)}. Your ${fmtZAR(estimatedValue())} ${goal==='trade-in'?'credit':'payout'} is reserved for 14 days.</p>
+          </div>
         </div>`;
     }
 
@@ -112,6 +118,8 @@ function renderQuoteFlow(containerId, goal){
       </div>`;
 
     bindEvents();
+    const statusEl = container.querySelector('[data-quote-status]');
+    if(statusEl) statusEl.focus();
   }
 
   function bindEvents(){
@@ -139,7 +147,7 @@ function renderQuoteFlow(containerId, goal){
     if(lockBtn) lockBtn.addEventListener('click', () => { state.step = 'contact'; render(); });
 
     const form = document.getElementById('quoteContactForm');
-    if(form) form.addEventListener('submit', function(e){
+    if(form) form.addEventListener('submit', async function(e){
       e.preventDefault();
       state.contact = {
         name: document.getElementById('qf-name').value,
@@ -147,8 +155,28 @@ function renderQuoteFlow(containerId, goal){
         phone: document.getElementById('qf-phone').value,
         notes: document.getElementById('qf-notes').value,
       };
-      state.step = 'done';
+      state.submissionError = null;
+      const payload = {
+        goal,
+        model: state.model,
+        answers: state.answers,
+        contact: state.contact,
+        estimatedValue: estimatedValue(),
+      };
+      const result = await submitQuote(payload);
+      if(result.success){
+        state.step = 'done';
+      } else {
+        state.submissionError = result.message || 'Unable to submit your quote right now. Please try again.';
+      }
       render();
+    });
+  }
+
+  async function submitQuote(payload){
+    // Demo-only submission path. Replace this with a real API call for production.
+    return new Promise(resolve => {
+      setTimeout(() => resolve({ success: false, demo: true, message: 'Demo only: quote was not submitted.' }), 250);
     });
   }
 

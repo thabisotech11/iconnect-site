@@ -109,7 +109,7 @@
 </main>
 
 <div class="mobile-overlay" id="filterOverlay"></div>
-<div class="filter-sheet" id="filterSheet">
+<div class="filter-sheet" id="filterSheet" role="dialog" aria-modal="true" aria-label="Filter products" tabindex="-1">
   <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem;">
     <span style="font-weight:800; font-size:1.1rem;">Filters</span>
     <button class="icon-btn" id="closeFilterSheet" aria-label="Close filters"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
@@ -153,7 +153,7 @@
     </div>
     <div class="foot-bottom">
       <p>&copy; <span id="year"></span> iConnect Pre-Owned. All rights reserved.</p>
-      <div style="display:flex; gap:1.5rem;"><a href="faq.html">Privacy Policy</a><a href="faq.html">Terms of Service</a><span style="color:rgb(255 255 255/.3);">POPIA compliant</span></div>
+      <div style="display:flex; gap:1.5rem;"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><span style="color:rgb(255 255 255/.3);">POPIA compliant</span></div>
       <div class="pay-badges"><span>VISA</span><span>MASTERCARD</span><span>PAYFAST</span><span>EFT</span></div>
     </div>
   </div>
@@ -273,9 +273,56 @@
   // Mobile filter sheet open/close
   const filterSheet = document.getElementById('filterSheet');
   const filterOverlay = document.getElementById('filterOverlay');
-  document.getElementById('openFilterSheet').addEventListener('click', () => { filterSheet.classList.add('open'); filterOverlay.classList.add('open'); });
-  function closeSheet(){ filterSheet.classList.remove('open'); filterOverlay.classList.remove('open'); }
-  document.getElementById('closeFilterSheet').addEventListener('click', closeSheet);
+  const filterOpenBtn = document.getElementById('openFilterSheet');
+  const filterCloseBtn = document.getElementById('closeFilterSheet');
+  let filterPrevFocus = null;
+  let filterKeydownHandler = null;
+
+  function trapFilterFocus(event){
+    if(event.key !== 'Tab') return;
+    const focusable = Array.from(filterSheet.querySelectorAll('a[href], button:not([disabled]), input, textarea, select')).filter(el => el.offsetParent !== null);
+    if(focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if(event.shiftKey && document.activeElement === first){
+      event.preventDefault();
+      last.focus();
+    } else if(!event.shiftKey && document.activeElement === last){
+      event.preventDefault();
+      first.focus();
+    }
+  }
+
+  function openSheet(){
+    filterPrevFocus = document.activeElement;
+    filterSheet.classList.add('open');
+    filterOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if(filterCloseBtn) filterCloseBtn.focus();
+    filterKeydownHandler = function(event){
+      if(event.key === 'Escape'){
+        event.preventDefault();
+        closeSheet();
+      } else {
+        trapFilterFocus(event);
+      }
+    };
+    document.addEventListener('keydown', filterKeydownHandler);
+  }
+
+  function closeSheet(){
+    filterSheet.classList.remove('open');
+    filterOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+    if(filterPrevFocus && typeof filterPrevFocus.focus === 'function') filterPrevFocus.focus();
+    if(filterKeydownHandler){
+      document.removeEventListener('keydown', filterKeydownHandler);
+      filterKeydownHandler = null;
+    }
+  }
+
+  filterOpenBtn.addEventListener('click', openSheet);
+  filterCloseBtn.addEventListener('click', closeSheet);
   document.getElementById('showResultsBtn').addEventListener('click', closeSheet);
   filterOverlay.addEventListener('click', closeSheet);
 

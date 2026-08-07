@@ -339,10 +339,7 @@ function productCardHTML(p){
       <div class="price-row"><span class="now">${fmtZAR(p.price)}</span><span class="was">${fmtZAR(p.was)}</span></div>
       <div class="stock-row"><span class="badge ${p.stock<=3?'badge-caution':'badge-positive'}"><span class="dot"></span>${p.stock<=3?`Only ${p.stock} left`:'In stock'}</span></div>
       <div class="product-actions">
-        <button class="add-cart-btn" onclick="addToCart('${p.name.replace(/'/g,"\\'")}')">Add to cart</button>
-        <button class="compare-btn" aria-label="Add ${p.name} to comparison">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 4-6"/></svg>
-        </button>
+        <button class="add-cart-btn" onclick="addToCart({ productId: '${p.slug}', name: '${p.name.replace(/'/g,"\\'")}', selectedStorage: '${p.storage[0] || ''}', selectedColor: '${p.colors[0] || ''}', qty: 1 })">Add to cart</button>
       </div>
     </div>
   </div>`;
