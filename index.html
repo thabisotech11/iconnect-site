@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>iConnect Pre-Owned | Premium Pre-Owned Devices You Can Trust</title>
+<meta name="description" content="Certified pre-owned iPhones, Samsung Galaxy, iPads, MacBooks and more. 60-point tested, 30-day warranty, nationwide delivery across South Africa." />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><rect width=24 height=24 rx=6 fill=%22%230A2FA8%22/><path d=%22M12 5C8.5 5 5.5 7.6 5.5 11c0 2.3 1.4 4.3 3.5 5.3V21l3.1-2c3.6-.2 6.4-2.9 6.4-6.2C18.5 8.6 15.5 5 12 5Z%22 fill=%22white%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+
+<div class="announce" aria-hidden="true">
+  <div class="announce-track">
+    <span>Nationwide delivery in 1–3 working days <span class="dot"></span></span>
+    <span>Every device backed by a 30-day warranty <span class="dot"></span></span>
+    <span>Trade in today for instant purchase credit <span class="dot"></span></span>
+    <span>Certified with a 60-point inspection <span class="dot"></span></span>
+    <span>Nationwide delivery in 1–3 working days <span class="dot"></span></span>
+    <span>Every device backed by a 30-day warranty <span class="dot"></span></span>
+    <span>Trade in today for instant purchase credit <span class="dot"></span></span>
+    <span>Certified with a 60-point inspection <span class="dot"></span></span>
+  </div>
+</div>
+
+<header class="nav" id="navHeader">
+  <div class="container">
+    <div class="nav-row">
+      <a href="index.html" class="logo" aria-label="iConnect Pre-Owned home">
+        <span class="logo-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C7 2 3 5.6 3 10c0 3.2 2 5.9 5 7.2V22l4.2-2.7c5-.3 8.8-4 8.8-8.5C21 6 17 2 12 2Z" fill="currentColor"/></svg></span>
+        <span class="logo-text">iConnect<small>Pre-Owned</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="shop.html">Shop</a>
+        <a href="trade-in.html">Trade-In</a>
+        <a href="sell-your-device.html">Sell Device</a>
+        <a href="repairs.html">Repairs</a>
+        <a href="financing.html">Financing</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <form class="search-wrap" role="search" onsubmit="window.location.href='shop.html?q='+encodeURIComponent(this.q.value); return false;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input type="search" name="q" placeholder="Search iPhone, Galaxy…" aria-label="Search products">
+        </form>
+        <button class="icon-btn" id="themeToggle" aria-label="Switch to dark mode">
+          <svg id="themeIcon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></svg>
+        </button>
+        <a href="faq.html" class="icon-btn hide-desktop" style="display:none"></a>
+        <button class="icon-btn" id="wishlistBtn" data-wishlist-btn aria-label="Wishlist, 0 items">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
+          <span class="count-dot" data-wishlist-count style="display:none">0</span>
+        </button>
+        <button class="icon-btn" id="cartBtn" data-cart-btn aria-label="Cart, 0 items">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="count-dot" data-cart-count style="display:none">0</span>
+        </button>
+        <button class="icon-btn" id="menuBtn" aria-label="Open menu">
+          <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Site menu">
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem;">
+    <span style="font-weight:800;">Menu</span>
+    <button class="icon-btn" id="closeMenuBtn" aria-label="Close menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <nav aria-label="Mobile">
+    <a href="shop.html" class="active">Shop <span>→</span></a>
+    <a href="trade-in.html">Trade-In <span>→</span></a>
+    <a href="sell-your-device.html">Sell Device <span>→</span></a>
+    <a href="repairs.html">Repairs <span>→</span></a>
+    <a href="financing.html">Financing <span>→</span></a>
+    <a href="about.html">About <span>→</span></a>
+    <a href="contact.html">Contact <span>→</span></a>
+    <a href="faq.html">FAQ <span>→</span></a>
+  </nav>
+</div>
+
+<main id="main">
+
+<section class="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="hero-pill">Certified Pre-Owned · South Africa</span>
+        <h1>Premium Pre-Owned Devices You Can Trust.</h1>
+        <p class="lead">Certified iPhones, Samsung Galaxy, iPads, MacBooks and more — professionally tested, cleaned and quality-checked, then backed by a 30-day warranty and delivered nationwide.</p>
+        <div class="hero-ctas">
+          <a href="shop.html" class="btn btn-primary btn-lg">Shop Now
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="sell-your-device.html" class="btn btn-outline btn-lg">Sell Your Device</a>
+        </div>
+        <div class="trust-strip" style="margin-top:3rem;" id="heroTrust"></div>
+      </div>
+      <div class="hero-visual">
+        <div class="float-card" style="top:6%; left:8%; width:108px; height:108px; background:linear-gradient(135deg,#2E6BFF,#0A2FA8); animation-delay:.1s;">
+          <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity=".9"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>
+        </div>
+        <div class="float-card" style="top:52%; left:2%; width:84px; height:84px; background:linear-gradient(135deg,#FF6B6B,#B7325C); animation-delay:.3s;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity=".9"><rect x="7" y="6" width="10" height="12" rx="3"/><path d="M9 3h6M9 21h6"/></svg>
+        </div>
+        <div class="float-card" style="top:66%; left:56%; width:92px; height:92px; background:linear-gradient(135deg,#B8BEC8,#5B6270); animation-delay:.5s;">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity=".9"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1v-8h3ZM3 19a2 2 0 0 0 2 2h1v-8H3Z"/></svg>
+        </div>
+        <div class="health-chip">
+          <svg width="52" height="52" viewBox="0 0 52 52">
+            <circle cx="26" cy="26" r="22" fill="none" stroke="rgb(232 232 237)" stroke-width="5"/>
+            <circle cx="26" cy="26" r="22" fill="none" stroke="#007AFF" stroke-width="5" stroke-linecap="round" stroke-dasharray="138.2" stroke-dashoffset="4" transform="rotate(-90 26 26)"/>
+          </svg>
+          <div><p class="big">98% Avg. certified</p><p>battery health score</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="heading-wrap reveal">
+        <p class="eyebrow" style="margin-bottom:.75rem;">Handpicked</p>
+        <h2>Featured devices</h2>
+        <p>Our top-certified picks this week, chosen for exceptional condition and value.</p>
+      </div>
+      <a href="shop.html" class="btn btn-ghost btn-md reveal">View all
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="grid-products" id="featuredGrid"></div>
+  </div>
+</section>
+
+<section class="bg-surface">
+  <div class="container">
+    <div class="heading-wrap center reveal">
+      <p class="eyebrow" style="margin-bottom:.75rem;">Why iConnect</p>
+      <h2>Buying pre-owned shouldn't feel like a gamble</h2>
+      <p>We built the process we'd want as customers — transparent grading, real diagnostics, and a warranty that actually means something.</p>
+    </div>
+    <div class="grid-3" style="margin-top:3.5rem;" id="reasonsGrid"></div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="heading-wrap reveal">
+        <p class="eyebrow" style="margin-bottom:.75rem;">Customer reviews</p>
+        <h2>Trusted by thousands of South Africans</h2>
+        <p>4.8 average rating across more than 1,200 verified orders.</p>
+      </div>
+      <div class="arrows">
+        <button class="arrow-btn" aria-label="Previous testimonials" onclick="scrollByCard('tScroller',-1)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="arrow-btn" aria-label="Next testimonials" onclick="scrollByCard('tScroller',1)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
+    <div class="scroller" id="tScroller"></div>
+  </div>
+</section>
+
+<section class="bg-ink">
+  <div class="container">
+    <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:2rem;">
+      <div class="heading-wrap reveal">
+        <p class="eyebrow" style="margin-bottom:.75rem;">Trade-in process</p>
+        <h2 style="color:#fff;">Turn your old device into your next one</h2>
+        <p style="color:rgb(255 255 255/.7);">Whether you're upgrading or just cashing out, the whole process happens in four simple steps.</p>
+      </div>
+      <a href="trade-in.html" class="btn btn-primary btn-lg reveal">Start your trade-in
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+    <div class="steps" id="stepsGrid"></div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="fin-grid">
+      <div class="reveal">
+        <p class="eyebrow" style="margin-bottom:.75rem;">Financing options</p>
+        <h2 style="font-size:clamp(1.9rem,4vw,2.75rem);">Get it today. Pay it off your way.</h2>
+        <p style="margin-top:1rem; color:rgb(var(--ink-soft)); font-size:1.05rem; line-height:1.6; max-width:30rem;">Split any purchase into manageable instalments with instant online approval — no long forms, no waiting days for a decision.</p>
+        <ul class="fin-list">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34C759" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M20 6 9 17l-5-5"/></svg>Instant approval, decided online in minutes</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34C759" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M20 6 9 17l-5-5"/></svg>3 and 6-month plans with zero interest</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#34C759" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><path d="M20 6 9 17l-5-5"/></svg>No early settlement penalties</li>
+        </ul>
+        <a href="financing.html" class="btn btn-primary btn-lg" style="margin-top:2rem;">Explore financing
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="card reveal" style="padding:2rem;">
+        <p style="font-size:.85rem; color:rgb(var(--ink-soft)); font-weight:500;">Example: MacBook Air M2 13"</p>
+        <p style="font-size:1.9rem; font-weight:800; margin-top:.25rem;">R17,999</p>
+        <div style="margin-top:1.5rem;" id="finPlans"></div>
+        <p style="margin-top:1rem; font-size:.72rem; color:rgb(var(--ink-faint));">Illustrative example. Final terms confirmed by our financing partner at checkout, subject to approval.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-surface">
+  <div class="container">
+    <div class="warranty-grid">
+      <div class="card reveal" style="padding:2.25rem; position:relative; overflow:hidden;">
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <div class="ring-wrap">
+            <svg width="72" height="72" viewBox="0 0 72 72">
+              <circle cx="36" cy="36" r="30" fill="none" stroke="rgb(var(--line))" stroke-width="6"/>
+              <circle cx="36" cy="36" r="30" fill="none" stroke="rgb(var(--accent))" stroke-width="6" stroke-linecap="round" stroke-dasharray="188.5" stroke-dashoffset="0" transform="rotate(-90 36 36)"/>
+            </svg>
+            <div class="ring-label"><span class="num">30</span><span class="unit">days</span></div>
+          </div>
+          <div>
+            <p style="font-size:.9rem; font-weight:700; display:flex; align-items:center; gap:.4rem;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgb(var(--accent))" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+              Full warranty coverage
+            </p>
+            <p style="margin-top:.25rem; font-size:.85rem; color:rgb(var(--ink-soft));">Every certified device, every order.</p>
+          </div>
+        </div>
+        <ul class="insp-list" id="inspList"></ul>
+      </div>
+      <div class="reveal">
+        <p class="eyebrow" style="margin-bottom:.75rem;">Device warranty</p>
+        <h2 style="font-size:clamp(1.9rem,4vw,2.75rem);">Real protection, not just a promise</h2>
+        <p style="margin-top:1rem; color:rgb(var(--ink-soft)); font-size:1.05rem; line-height:1.6; max-width:30rem;">Every device is covered by our 30-day warranty against any functional fault — batteries, charging, display, cameras and connectivity. If our 60-point certification missed something, we make it right with a free repair, replacement or full refund.</p>
+        <a href="faq.html" class="btn btn-outline btn-lg" style="margin-top:2rem;">Read the full warranty terms</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-surface">
+  <div class="container">
+    <div class="section-head">
+      <div class="heading-wrap reveal">
+        <p class="eyebrow" style="margin-bottom:.75rem;">Just landed</p>
+        <h2>Latest arrivals</h2>
+        <p>New certified stock, updated weekly.</p>
+      </div>
+      <div class="arrows">
+        <button class="arrow-btn" aria-label="Previous arrivals" onclick="scrollByCard('arrivalsScroller',-1)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button class="arrow-btn" aria-label="Next arrivals" onclick="scrollByCard('arrivalsScroller',1)"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
+    <div class="scroller" id="arrivalsScroller"></div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="newsletter-box reveal">
+      <div style="width:3rem; height:3rem; border-radius:1rem; background:rgb(255 255 255/.1); display:flex; align-items:center; justify-content:center; margin:0 auto; color:#fff;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+      </div>
+      <h2>Be first to new stock and drops</h2>
+      <p>Certified devices move fast. Join the list for early access, price drops and trade-in bonuses.</p>
+      <form class="nl-form" id="nlForm">
+        <label for="nlEmail" class="sr-only">Email address</label>
+        <input type="email" id="nlEmail" placeholder="you@example.com" required>
+        <button type="submit" class="btn btn-primary btn-lg">Subscribe</button>
+      </form>
+      <p class="nl-msg" id="nlMsg" aria-live="polite"></p>
+      <p style="font-size:.72rem; color:rgb(255 255 255/.4); margin-top:.25rem;">No spam. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-badges"><div class="container"><div class="trust-strip dark-strip" id="footerTrust"></div></div></div>
+  <div class="container">
+    <div class="footer-cols">
+      <div class="foot-about">
+        <a href="index.html" class="logo" style="color:#fff;">
+          <span class="logo-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C7 2 3 5.6 3 10c0 3.2 2 5.9 5 7.2V22l4.2-2.7c5-.3 8.8-4 8.8-8.5C21 6 17 2 12 2Z" fill="currentColor"/></svg></span>
+          <span class="logo-text">iConnect<small style="color:rgb(255 255 255/.5);">Pre-Owned</small></span>
+        </a>
+        <p>Certified pre-owned Apple &amp; Samsung devices, tested and warrantied, delivered nationwide across South Africa.</p>
+        <ul class="foot-contact">
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg> 011 000 0000</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg> hello@iconnectpreowned.co.za</li>
+          <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Johannesburg · Cape Town · Durban hubs</li>
+        </ul>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.5"/><path d="M13.5 9.2h1.3V7h-1.6c-1.5 0-2.4 1-2.4 2.5v1.2H9.5v2.2h1.3V17h2.2v-4.1h1.5l.3-2.2h-1.8v-1c0-.3.2-.5.5-.5Z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="16.8" cy="7.2" r="1" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="X (Twitter)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.5"/><path d="M8 8l8 8M16 8l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        </div>
+      </div>
+      <nav aria-label="Shop"><h3>Shop</h3><ul>
+        <li><a href="shop.html?category=iPhone">iPhone</a></li><li><a href="shop.html?category=Samsung+Galaxy">Samsung Galaxy</a></li><li><a href="shop.html?category=iPad">iPad</a></li>
+        <li><a href="shop.html?category=Apple+Watch">Apple Watch</a></li><li><a href="shop.html?category=AirPods">AirPods</a></li><li><a href="shop.html?category=MacBook">MacBook</a></li>
+      </ul></nav>
+      <nav aria-label="Services"><h3>Services</h3><ul>
+        <li><a href="trade-in.html">Trade-In</a></li><li><a href="sell-your-device.html">Sell Your Device</a></li>
+        <li><a href="repairs.html">Repairs</a></li><li><a href="financing.html">Financing</a></li>
+      </ul></nav>
+      <nav aria-label="Company"><h3>Company</h3><ul>
+        <li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul></nav>
+    </div>
+    <div class="foot-bottom">
+      <p>&copy; <span id="year"></span> iConnect Pre-Owned. All rights reserved.</p>
+      <div style="display:flex; gap:1.5rem;"><a href="faq.html">Privacy Policy</a><a href="faq.html">Terms of Service</a><span style="color:rgb(255 255 255/.3);">POPIA compliant</span></div>
+      <div class="pay-badges"><span>VISA</span><span>MASTERCARD</span><span>PAYFAST</span><span>EFT</span></div>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-btn" href="https://wa.me/27712345678?text=Hi%20iConnect%20Pre-Owned!" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 32 32" width="26" height="26" fill="currentColor"><path d="M16.02 3C9.4 3 4 8.36 4 14.98c0 2.2.6 4.26 1.63 6.03L4 29l8.2-1.55a12.9 12.9 0 0 0 3.82.58h.01c6.62 0 12.02-5.36 12.02-11.98C28.05 8.36 22.66 3 16.02 3Zm7.05 17.02c-.3.83-1.7 1.6-2.35 1.7-.6.1-1.36.14-2.2-.14-.5-.16-1.15-.38-2-.75-3.52-1.52-5.82-5.08-6-5.32-.18-.24-1.43-1.9-1.43-3.63s.9-2.57 1.23-2.93c.3-.32.66-.4.88-.4.22 0 .44 0 .63.01.2 0 .48-.08.75.57.3.7 1 2.43 1.09 2.6.09.18.15.4.03.64-.12.24-.18.4-.36.6-.18.2-.38.46-.55.62-.18.18-.37.37-.16.73.2.36.9 1.5 1.95 2.43 1.34 1.2 2.47 1.57 2.83 1.75.36.18.57.15.78-.09.22-.24.9-1.05 1.15-1.4.24-.36.48-.3.8-.18.34.12 2.1.99 2.46 1.17.36.18.6.27.68.42.1.16.1.9-.2 1.72Z"/></svg>
+</a>
+
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+<script>
+  document.getElementById('featuredGrid').innerHTML = getFeatured().map(productCardHTML).join('');
+  document.getElementById('arrivalsScroller').innerHTML = getNewArrivals().map(p => `<div class="arrival-card">${productCardHTML(p)}</div>`).join('');
+
+  const REASONS = [
+    {icon:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>', title:'60-point certification', desc:"Every device passes battery, screen, camera, buttons and connectivity checks before it's listed."},
+    {icon:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M19 14a7 7 0 1 0-14 0"/><path d="M12 14V8"/><circle cx="12" cy="14" r="1.5"/></svg>', title:'Real battery health data', desc:"We publish the exact battery health percentage on every listing — not a vague 'good condition.'"},
+    {icon:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>', title:'30-day warranty, no fine print', desc:"Full cover for any functional fault. If something's wrong, we repair, replace or refund it."},
+    {icon:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/></svg>', title:'Trade in or sell in minutes', desc:'Get an instant, honest quote for your current device — credit it toward an upgrade or take cash.'},
+    {icon:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8Z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>', title:'Nationwide, tracked delivery', desc:'Insured courier delivery to all nine provinces, with live tracking from dispatch to your door.'},
+    {icon:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>', title:'Flexible financing', desc:'Split your purchase into interest-free instalments, approved online in minutes.'},
+  ];
+  document.getElementById('reasonsGrid').innerHTML = REASONS.map(r=>`<div class="card reason-card reveal">${'<div class="reason-icon">'+r.icon+'</div>'}<h3>${r.title}</h3><p>${r.desc}</p></div>`).join('');
+
+  document.getElementById('tScroller').innerHTML = TESTIMONIALS.map(t=>`
+    <div class="card t-card">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(var(--accent))" stroke-width="1.8"><path d="M7 8a3 3 0 0 0-3 3v5h5v-5H6a3 3 0 0 1 1-3Zm10 0a3 3 0 0 0-3 3v5h5v-5h-3a3 3 0 0 1 1-3Z"/></svg>
+      <span class="stars" style="margin-top:.75rem;">${starsHTML(t.rating)}</span>
+      <p class="quote">&ldquo;${t.quote}&rdquo;</p>
+      <div class="t-person"><div class="avatar">${initials(t.name)}</div><div><p class="name">${t.name}</p><p class="loc">${t.loc} · ${t.device}</p></div></div>
+    </div>`).join('');
+
+  const STEPS = [
+    {icon:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>', title:'Tell us about your device', desc:"Select the model, storage and condition — takes under a minute."},
+    {icon:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h8M8 14h4"/></svg>', title:'Get an instant quote', desc:'See a real, honest valuation immediately. No haggling, no hidden deductions.'},
+    {icon:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></svg>', title:'Ship or drop off, free', desc:'Use our free prepaid courier bag or drop off at a partner point near you.'},
+    {icon:'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>', title:'Get paid fast', desc:'Take purchase credit instantly, or cash out via same-week bank transfer.'},
+  ];
+  document.getElementById('stepsGrid').innerHTML = STEPS.map((s,i)=>`<div class="reveal" style="position:relative;"><div class="step-icon">${s.icon}</div><span class="step-num">0${i+1}</span><h3>${s.title}</h3><p>${s.desc}</p></div>`).join('');
+
+  document.getElementById('finPlans').innerHTML = FINANCING_PLANS.map(p=>`<div class="fin-plan"><div><p class="name">${p.label}</p><p class="tag">${p.tag}</p></div><p class="amt">${fmtZAR(Math.ceil(17999/p.months))}<span style="font-size:.65rem; font-weight:500; color:rgb(var(--ink-faint));">/mo</span></p></div>`).join('');
+
+  document.getElementById('inspList').innerHTML = INSPECTION_POINTS.slice(0,6).map(i=>`<li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#34C759" stroke-width="2" style="flex-shrink:0; margin-top:2px;"><path d="M20 6 9 17l-5-5"/></svg>${i}</li>`).join('');
+
+  setupNewsletterForm('nlForm','nlMsg');
+  observeReveal('.reveal');
+</script>
+</body>
+</html>
