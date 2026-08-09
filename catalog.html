@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>iConnect Pre-Owned — Certified Pre-Owned iPhones</title>
-<meta name="description" content="Verified, tested pre-owned iPhones at honest prices. Every device checked before it reaches you.">
+<title>Catalog — iConnect Pre-Owned</title>
+<meta name="description" content="Browse every pre-owned iPhone model and storage size we source, with honest pricing.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -15,7 +15,7 @@
   <div class="wrap header-inner">
     <a href="index.html" class="logo">iConnect <span>Pre-Owned</span></a>
     <nav class="nav-links">
-      <a href="catalog.html">Catalog</a>
+      <a href="catalog.html" class="active-link">Catalog</a>
       <a href="index.html#verified">How we verify</a>
       <a href="contact.html">Contact</a>
     </nav>
@@ -23,50 +23,34 @@
   </div>
 </header>
 
-<section class="hero" id="top">
-  <div class="wrap hero-inner">
-    <div class="hero-copy">
-      <div class="eyebrow">— CERTIFIED PRE-OWNED</div>
-      <h1>A great iPhone<br><em>doesn't have to be new.</em></h1>
-      <p>Every device we sell is tested, verified, and priced honestly — so you get real Apple
-        quality without the new-phone price tag.</p>
-      <a href="catalog.html" class="btn-solid">Browse the catalog →</a>
-    </div>
-    <div class="hero-preview" id="hero-preview"><!-- filled by script.js --></div>
+<section class="page-head-simple">
+  <div class="wrap">
+    <div class="eyebrow">— FULL CATALOG</div>
+    <h1>Every model, every storage size.</h1>
+    <p class="catalog-sub">Prices update as our stock changes. Message us to confirm current availability before you commit.</p>
   </div>
 </section>
 
-<section class="verified-section" id="verified">
+<section class="catalog-section">
   <div class="wrap">
-    <div class="eyebrow">— WHY BUY PRE-OWNED FROM US</div>
-    <h2>Verified before it ever reaches you.</h2>
-    <div class="verified-grid">
-      <div class="v-card">
-        <div class="v-badge">✓</div>
-        <h3>Tested</h3>
-        <p>Every device is checked for function — screen, battery, camera, buttons — before listing.</p>
-      </div>
-      <div class="v-card">
-        <div class="v-badge">✓</div>
-        <h3>Honest pricing</h3>
-        <p>One price, clearly shown. No haggling, no hidden charges added at checkout.</p>
-      </div>
-      <div class="v-card">
-        <div class="v-badge">✓</div>
-        <h3>Real stock</h3>
-        <p>This catalog reflects what's actually available to source — not a wish list.</p>
-      </div>
+    <div class="pricing-notice" id="pricing-notice"><!-- filled by script.js --></div>
+
+    <div class="catalog-filter">
+      <label for="search-input" class="catalog-search-label">Search models</label>
+      <input type="text" id="search-input" placeholder="Search a model, e.g. '13 Pro'">
     </div>
+
+    <div class="catalog-grid" id="catalog-grid"><!-- filled by script.js --></div>
   </div>
 </section>
 
 <section class="cta-banner">
   <div class="wrap cta-inner">
     <div>
-      <h2>Ready to find your next iPhone?</h2>
-      <p>Browse the full catalog, or message us directly if you know what you're after.</p>
+      <h2>Don't see the exact model or storage you want?</h2>
+      <p>Message us — stock changes often, and we may have something not yet listed here.</p>
     </div>
-    <a href="catalog.html" class="btn-solid">Browse the catalog →</a>
+    <a href="contact.html" class="btn-solid">Get in touch →</a>
   </div>
 </section>
 

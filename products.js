@@ -2,7 +2,21 @@
 // Sourced from Gorilla Phones wholesale pricelist (2026)
 // wholesale = supplier cost in ZAR. Retail price is computed automatically.
 
-const MARKUP_PERCENT = 12; // flat markup, kept within the requested 10-15% range — change this ONE number to adjust every price at once
+const MARKUP_PERCENT = 35; // flat markup on every phone — change this ONE number to adjust every price at once
+const ACCESSORY_MARKUP_PERCENT = 17.5; // midpoint of the requested 15-20% range, applied to charger/delivery base costs
+
+const CHARGER_BASE = 75;
+const DELIVERY_BASE_LOW = 100;
+const DELIVERY_BASE_HIGH = 200;
+
+function chargerPrice() {
+  return Math.round((CHARGER_BASE * (1 + ACCESSORY_MARKUP_PERCENT / 100)) / 5) * 5;
+}
+function deliveryPriceRange() {
+  const low = Math.round((DELIVERY_BASE_LOW * (1 + ACCESSORY_MARKUP_PERCENT / 100)) / 5) * 5;
+  const high = Math.round((DELIVERY_BASE_HIGH * (1 + ACCESSORY_MARKUP_PERCENT / 100)) / 5) * 5;
+  return { low, high };
+}
 
 const PRODUCTS = [
   { model: "iPhone 6S", variants: [
