@@ -8,7 +8,7 @@
   --canvas:255 255 255; --surface:245 245 247; --surface-raised:255 255 255;
   --ink:29 29 31; --ink-soft:110 110 115; --ink-faint:134 134 139; --line:232 232 237;
   --accent:0 122 255; --accent-deep:0 88 204; --accent-soft:229 241 255;
-  --positive:52 199 89; --positive-strong:22 110 45; --caution:255 149 0; --caution-strong:145 70 0;
+  --positive:52 199 89; --caution:255 149 0;
   --shadow-soft:0 1px 2px rgb(0 0 0/.04), 0 4px 16px rgb(0 0 0/.04);
   --shadow-card:0 2px 8px rgb(0 0 0/.04), 0 12px 32px rgb(0 0 0/.06);
   --shadow-elevated:0 8px 24px rgb(0 0 0/.08), 0 24px 64px rgb(0 0 0/.10);
@@ -18,8 +18,6 @@ html[data-theme="dark"]{
   --canvas:0 0 0; --surface:22 22 23; --surface-raised:29 29 31;
   --ink:245 245 247; --ink-soft:152 152 157; --ink-faint:110 110 115; --line:56 56 58;
   --accent:10 132 255; --accent-deep:64 156 255; --accent-soft:12 39 68;
-  --positive-strong:52 199 89;
-  --caution-strong:255 149 0;
 }
 
 /* ── Reset & base ─────────────────────────────────────────── */
@@ -88,8 +86,8 @@ html[data-theme="dark"] .eyebrow{color:rgb(var(--accent));}
 .card{background:rgb(var(--surface-raised)); border:1px solid rgb(var(--line)); border-radius:1.5rem; box-shadow:var(--shadow-soft);}
 .badge{display:inline-flex; align-items:center; gap:.35rem; padding:.3rem .7rem; border-radius:999px; font-size:.72rem; font-weight:700;}
 .badge-accent{background:rgb(var(--accent-soft)); color:rgb(var(--accent-deep));}
-.badge-positive{background:rgb(var(--positive)/.12); color:rgb(var(--positive-strong));}
-.badge-caution{background:rgb(var(--caution)/.12); color:rgb(var(--caution-strong));}
+.badge-positive{background:rgb(var(--positive)/.12); color:rgb(var(--positive));}
+.badge-caution{background:rgb(var(--caution)/.12); color:rgb(var(--caution));}
 .badge-dark{background:rgb(var(--ink)); color:rgb(var(--canvas));}
 .dot{width:6px; height:6px; border-radius:999px; background:currentColor; flex-shrink:0;}
 

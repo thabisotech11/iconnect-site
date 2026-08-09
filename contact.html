@@ -112,15 +112,15 @@
 
     <div id="contactFormWrap">
       <form class="card" id="contactForm" style="padding:1.75rem;">
-        <div class="field"><label for="ct-name">Full name</label><input id="ct-name" name="name" autocomplete="name" required></div>
-        <div class="field"><label for="ct-email">Email</label><input id="ct-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="ct-name">Full name</label><input id="ct-name" required></div>
+        <div class="field"><label for="ct-email">Email</label><input id="ct-email" type="email" required></div>
         <div class="field"><label for="ct-topic">Topic</label>
-          <select id="ct-topic" name="topic">
+          <select id="ct-topic">
             <option>Order enquiry</option><option>Product question</option><option>Trade-in / Sell</option>
             <option>Repairs</option><option>Financing</option><option>Something else</option>
           </select>
         </div>
-        <div class="field" style="margin-bottom:0;"><label for="ct-message">Message</label><textarea id="ct-message" name="message" required rows="5"></textarea></div>
+        <div class="field" style="margin-bottom:0;"><label for="ct-message">Message</label><textarea id="ct-message" required rows="5"></textarea></div>
         <button type="submit" class="btn btn-primary btn-lg btn-block" style="margin-top:1.5rem;">Send message</button>
       </form>
     </div>
@@ -153,7 +153,7 @@
     </div>
     <div class="foot-bottom">
       <p>&copy; <span id="year"></span> iConnect Pre-Owned. All rights reserved.</p>
-      <div style="display:flex; gap:1.5rem;"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><span style="color:rgb(255 255 255/.3);">POPIA compliant</span></div>
+      <div style="display:flex; gap:1.5rem;"><a href="faq.html">Privacy Policy</a><a href="faq.html">Terms of Service</a><span style="color:rgb(255 255 255/.3);">POPIA compliant</span></div>
       <div class="pay-badges"><span>VISA</span><span>MASTERCARD</span><span>PAYFAST</span><span>EFT</span></div>
     </div>
   </div>
@@ -168,14 +168,14 @@
 <script>
   document.getElementById('contactForm').addEventListener('submit', function(e){
     e.preventDefault();
-    const wrap = document.getElementById('contactFormWrap');
-    wrap.innerHTML = `
-      <div class="card" style="padding:2rem; text-align:center;" role="status" aria-live="polite">
-        <h3 id="contactStatusHeading" tabindex="-1" style="font-size:1.15rem; font-weight:700; margin-top:1rem;">Contact form demo only</h3>
-        <p style="margin-top:.75rem; font-size:.85rem; color:rgb(var(--ink-soft));">This static site does not submit form data. Please use the phone, WhatsApp or support methods shown above to get in touch.</p>
+    document.getElementById('contactFormWrap').innerHTML = `
+      <div class="card" style="padding:2rem; text-align:center;">
+        <div style="width:56px; height:56px; border-radius:999px; background:rgb(var(--positive)/.12); color:rgb(var(--positive)); display:flex; align-items:center; justify-content:center; margin:0 auto;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 12 2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+        </div>
+        <h3 style="font-size:1.15rem; font-weight:700; margin-top:1rem;">Message sent</h3>
+        <p style="margin-top:.5rem; font-size:.85rem; color:rgb(var(--ink-soft));">We usually reply within a few hours during business days.</p>
       </div>`;
-    const heading = document.getElementById('contactStatusHeading');
-    if(heading) heading.focus();
   });
 </script>
 </body>

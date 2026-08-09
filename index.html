@@ -77,7 +77,7 @@
     </button>
   </div>
   <nav aria-label="Mobile">
-    <a href="shop.html">Shop <span>→</span></a>
+    <a href="shop.html" class="active">Shop <span>→</span></a>
     <a href="trade-in.html">Trade-In <span>→</span></a>
     <a href="sell-your-device.html">Sell Device <span>→</span></a>
     <a href="repairs.html">Repairs <span>→</span></a>
@@ -320,7 +320,7 @@
     </div>
     <div class="foot-bottom">
       <p>&copy; <span id="year"></span> iConnect Pre-Owned. All rights reserved.</p>
-      <div style="display:flex; gap:1.5rem;"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><span style="color:rgb(255 255 255/.3);">POPIA compliant</span></div>
+      <div style="display:flex; gap:1.5rem;"><a href="faq.html">Privacy Policy</a><a href="faq.html">Terms of Service</a><span style="color:rgb(255 255 255/.3);">POPIA compliant</span></div>
       <div class="pay-badges"><span>VISA</span><span>MASTERCARD</span><span>PAYFAST</span><span>EFT</span></div>
     </div>
   </div>
@@ -362,16 +362,7 @@
   ];
   document.getElementById('stepsGrid').innerHTML = STEPS.map((s,i)=>`<div class="reveal" style="position:relative;"><div class="step-icon">${s.icon}</div><span class="step-num">0${i+1}</span><h3>${s.title}</h3><p>${s.desc}</p></div>`).join('');
 
-  function finPlanAmount(total, months){
-    const base = Math.floor(total / months);
-    const remainder = total - base * months;
-    return { base, remainder, final: base + remainder };
-  }
-
-  document.getElementById('finPlans').innerHTML = FINANCING_PLANS.map(p => {
-    const amt = finPlanAmount(17999, p.months);
-    return `<div class="fin-plan"><div><p class="name">${p.label}</p><p class="tag">${p.tag}</p></div><p class="amt">${fmtZAR(amt.base)}<span style="font-size:.65rem; font-weight:500; color:rgb(var(--ink-faint));">/mo</span></p>${amt.remainder ? `<p style="margin-top:.25rem; font-size:.72rem; color:rgb(var(--ink-faint));">Final payment ${fmtZAR(amt.final)}</p>` : ''}</div>`;
-  }).join('');
+  document.getElementById('finPlans').innerHTML = FINANCING_PLANS.map(p=>`<div class="fin-plan"><div><p class="name">${p.label}</p><p class="tag">${p.tag}</p></div><p class="amt">${fmtZAR(Math.ceil(17999/p.months))}<span style="font-size:.65rem; font-weight:500; color:rgb(var(--ink-faint));">/mo</span></p></div>`).join('');
 
   document.getElementById('inspList').innerHTML = INSPECTION_POINTS.slice(0,6).map(i=>`<li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#34C759" stroke-width="2" style="flex-shrink:0; margin-top:2px;"><path d="M20 6 9 17l-5-5"/></svg>${i}</li>`).join('');
 

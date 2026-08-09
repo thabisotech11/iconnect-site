@@ -170,7 +170,7 @@
     </div>
     <div class="foot-bottom">
       <p>&copy; <span id="year"></span> iConnect Pre-Owned. All rights reserved.</p>
-      <div style="display:flex; gap:1.5rem;"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><span style="color:rgb(255 255 255/.3);">POPIA compliant</span></div>
+      <div style="display:flex; gap:1.5rem;"><a href="faq.html">Privacy Policy</a><a href="faq.html">Terms of Service</a><span style="color:rgb(255 255 255/.3);">POPIA compliant</span></div>
       <div class="pay-badges"><span>VISA</span><span>MASTERCARD</span><span>PAYFAST</span><span>EFT</span></div>
     </div>
   </div>
@@ -196,29 +196,14 @@
     }));
   }
 
-  function normalizePrice(value){
-    const slider = document.getElementById('calcSlider');
-    const min = Number(slider.min) || 0;
-    const max = Number(slider.max) || value;
-    const step = Number(slider.step) || 1;
-    let normalized = Math.round((value - min) / step) * step + min;
-    normalized = Math.min(max, Math.max(min, normalized));
-    return normalized;
-  }
-
   function updateCalc(){
-    const priceInput = document.getElementById('calcPrice');
-    const slider = document.getElementById('calcSlider');
-    const rawPrice = Number(priceInput.value) || 0;
-    const normalized = normalizePrice(rawPrice);
-    priceInput.value = normalized;
-    slider.value = normalized;
-    const monthly = Math.ceil(normalized / selectedPlan.months);
+    const price = Math.max(0, Number(document.getElementById('calcPrice').value) || 0);
+    const monthly = Math.ceil(price / selectedPlan.months);
     document.getElementById('calcAmt').innerHTML = `${fmtZAR(monthly)}<span style="font-size:.85rem; font-weight:400; color:rgb(var(--ink-faint));">/mo</span>`;
     document.getElementById('calcMonths').textContent = `over ${selectedPlan.months} months`;
   }
 
-  document.getElementById('calcPrice').addEventListener('input', function(){ updateCalc(); });
+  document.getElementById('calcPrice').addEventListener('input', function(){ document.getElementById('calcSlider').value = this.value; updateCalc(); });
   document.getElementById('calcSlider').addEventListener('input', function(){ document.getElementById('calcPrice').value = this.value; updateCalc(); });
 
   renderPlans();

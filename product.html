@@ -167,8 +167,7 @@
 <script src="js/main.js"></script>
 <script>
   const slug = new URLSearchParams(window.location.search).get('slug');
-  const product = getProductBySlug(slug);
-  if(!product){ window.location.href = 'shop.html'; throw new Error('Product not found'); }
+  const product = getProductBySlug(slug) || PRODUCTS[0];
   const meta = CATEGORY_META[product.category];
   let selectedStorage = product.storage[0] || null;
   let selectedColor = product.colors[0] || null;
@@ -246,16 +245,7 @@
     document.querySelectorAll('#colorRow .variant-chip').forEach(btn => btn.addEventListener('click', function(){ selectedColor = this.dataset.color; renderPurchasePanel(); }));
     document.getElementById('qtyMinus').addEventListener('click', () => { qty = Math.max(1, qty-1); document.getElementById('qtyValue').textContent = qty; });
     document.getElementById('qtyPlus').addEventListener('click', () => { qty = Math.min(product.stock, qty+1); document.getElementById('qtyValue').textContent = qty; });
-    document.getElementById('addToCartBtn').addEventListener('click', function(){
-      addToCart({
-        productId: product.slug,
-        name: product.name,
-        selectedStorage,
-        selectedColor,
-        qty,
-      });
-      this.textContent = 'Added ✓'; setTimeout(()=>{ this.textContent = 'Add to Cart'; }, 1800);
-    });
+    document.getElementById('addToCartBtn').addEventListener('click', function(){ addToCart(product.name); this.textContent = 'Added ✓'; setTimeout(()=>{ this.textContent = 'Add to Cart'; }, 1800); });
     document.getElementById('pdFavBtn').addEventListener('click', function(){ toggleFav(this); });
   }
 

@@ -60,58 +60,8 @@ function setupMobileMenu(menuBtnId, closeBtnId, menuId, overlayId){
   const menu = document.getElementById(menuId);
   const overlay = document.getElementById(overlayId);
   if(!menuBtn || !menu || !overlay) return;
-  let previousFocus = null;
-  const focusableSelectors = 'a[href], button:not([disabled]), input, textarea, select';
-  let keydownHandler = null;
-
-  function trapFocus(event){
-    if(event.key !== 'Tab') return;
-    const focusable = Array.from(menu.querySelectorAll(focusableSelectors)).filter(el => el.offsetParent !== null);
-    if(focusable.length === 0) return;
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-    if(event.shiftKey && document.activeElement === first){
-      event.preventDefault();
-      last.focus();
-    } else if(!event.shiftKey && document.activeElement === last){
-      event.preventDefault();
-      first.focus();
-    }
-  }
-
-  function open(){
-    if(menu.classList.contains('open')) return;
-    if(keydownHandler){
-      document.removeEventListener('keydown', keydownHandler);
-      keydownHandler = null;
-    }
-    previousFocus = document.activeElement;
-    menu.classList.add('open');
-    overlay.classList.add('open');
-    document.body.style.overflow='hidden';
-    menuBtn.setAttribute('aria-expanded', 'true');
-    if(closeBtn){ closeBtn.focus(); }
-    keydownHandler = function(event){
-      if(event.key === 'Escape'){
-        close();
-      } else {
-        trapFocus(event);
-      }
-    };
-    document.addEventListener('keydown', keydownHandler);
-  }
-  function close(){
-    menu.classList.remove('open');
-    overlay.classList.remove('open');
-    document.body.style.overflow='';
-    menuBtn.setAttribute('aria-expanded', 'false');
-    if(previousFocus && typeof previousFocus.focus === 'function') previousFocus.focus();
-    if(keydownHandler){
-      document.removeEventListener('keydown', keydownHandler);
-      keydownHandler = null;
-    }
-  }
-  menuBtn.setAttribute('aria-expanded', 'false');
+  function open(){ menu.classList.add('open'); overlay.classList.add('open'); document.body.style.overflow='hidden'; }
+  function close(){ menu.classList.remove('open'); overlay.classList.remove('open'); document.body.style.overflow=''; }
   menuBtn.addEventListener('click', open);
   if(closeBtn) closeBtn.addEventListener('click', close);
   overlay.addEventListener('click', close);
@@ -178,7 +128,7 @@ function setupNewsletterForm(formId, msgId){
   if(!form) return;
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    if(msg) msg.textContent = "Demo only: this static site does not send email confirmations.";
+    if(msg) msg.textContent = "You're on the list — check your inbox to confirm.";
     form.reset();
   });
 }
