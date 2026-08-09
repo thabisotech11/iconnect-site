@@ -2,7 +2,7 @@
 // Sourced from Gorilla Phones wholesale pricelist (2026)
 // wholesale = supplier cost in ZAR. Retail price is computed automatically.
 
-const MARKUP_PERCENT = 20; // <-- change this ONE number to adjust markup on every product at once
+const MARKUP_PERCENT = 12; // flat markup, kept within the requested 10-15% range — change this ONE number to adjust every price at once
 
 const PRODUCTS = [
   { model: "iPhone 6S", variants: [

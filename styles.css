@@ -80,6 +80,13 @@ a{color:inherit;}
 .catalog-section h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:10px;}
 .catalog-sub{color:var(--slate);margin-bottom:28px;max-width:560px;}
 .catalog-filter{margin-bottom:28px;}
+.pricing-notice{
+  display:flex;gap:24px;flex-wrap:wrap;background:#fff;border:1px solid var(--line-light);
+  border-radius:10px;padding:16px 22px;margin-bottom:24px;
+}
+.pn-item{display:flex;align-items:baseline;gap:8px;font-size:0.9rem;}
+.pn-label{font-family:'JetBrains Mono',monospace;font-size:0.75rem;letter-spacing:0.04em;color:var(--verified);text-transform:uppercase;font-weight:500;}
+.pn-detail{color:var(--slate);}
 #search-input{
   width:100%;max-width:360px;padding:12px 16px;border:1px solid var(--line-light);border-radius:8px;
   font-family:'Inter',sans-serif;font-size:0.95rem;background:#fff;
